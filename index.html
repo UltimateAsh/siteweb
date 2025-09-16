@@ -345,7 +345,7 @@
                     <a href='#' onclick='breezy()'><i class='fa-solid fa-arrow-up-right-from-square'></i></a>
                 </div>
             </div>
-+           </div>
+            </div>
             
             <div class='work'>
             <div class='content'>
@@ -359,7 +359,7 @@
 
         </div>
     </div>
-    <div id="popup-python">
+    <div id="popup-python" class="popup">
     <div class="popup-content">
         <p>Ce projet avait pour but de réaliser un programme Python afin 
             d'envoyer un message et de le recevoir avec différentes étapes.</p>
@@ -368,7 +368,7 @@
 </div>
 
 
-    <div id="popup-arduino">
+    <div id="popup-arduino" class="popup">
         <div class="popup-content">
             <p>Ce projet consistait à réaliser un programme Arduino 
                 pour la mise en place d'un coffre-fort.
@@ -378,7 +378,7 @@
 
 
     </div>
-    <div id="popup-BDD">
+    <div id="popup-BDD" class="popup">
         <div class="popup-content">
             <p>Ce projet avait pour but de réaliser une base de données qui pourrait être utilisée 
                 par des scientifiques pour avoir un suivi sur la qualité de l'air 
@@ -388,7 +388,7 @@
         </div>
     </div>
 
-    <div id="popup-weather">
+    <div id="popup-weather" class="popup">
         <div class="popup-content">
             <p>Ce projet avait pour but de réaliser un système 
                 qui a pour initiative majeure à récolter des données météorologiques pour la surveillance des océans.
@@ -398,7 +398,7 @@
     </div>
             
 
-    <div id="popup-portfolio">
+    <div id="popup-portfolio" class="popup">
         <div class="popup-content">
             <p>Ce projet avait pour but de réaliser un portfolio 
                 pour présenter mes compétences et mes projets.
@@ -407,7 +407,7 @@
         </div>
     </div>
 
-    <div id="popup-POO">
+    <div id="popup-POO" class="popup">
         <div class="popup-content">
             <p>Ce projet avait pour but de réaliser un programme 
                 en programmation orientée objet pour la gestion 
@@ -417,7 +417,7 @@
         </div>
     </div>
 
-    <div id="popup-network">
+    <div id="popup-network" class="popup">
         <div class="popup-content">
             <p>Ce projet avait pour but de mettre en 
                 place le réseau d'une ville à l'aide
@@ -427,7 +427,7 @@
         </div>
     </div>
 
-    <div id="popup-job">
+    <div id="popup-job" class="popup">
         <div class="popup-content">
             <p>Ce projet avait pour but de réaliser un site web 
                 de recherche d'emploi.
@@ -436,7 +436,7 @@
         </div>
     </div>
 
-    <div id="popup-assurancePlus">
+    <div id="popup-assurancePlus" class="popup">
         <div class="popup-content">
             <p>
                 Conception d’une architecture informatique de référence suite à une attaque par ransomware et
@@ -448,7 +448,7 @@
         </div>
     </div>
 
-    <div id="popup-genielogiciel">
+    <div id="popup-genielogiciel" class="popup">
         <div class="popup-content">
             <p>Développement d’un utilitaire de sauvegarde. Accent mis sur la facilité d’utilisation et
                 la maintenabilité. Livraison d’un système de gestion de versions, d’une documentation
@@ -459,7 +459,7 @@
     </div>
 
 
-    <div id="popup-breezy">
+    <div id="popup-breezy" class="popup">
         <div class="popup-content">
             <p>Conception et implémentation d’un réseau social léger.
             Développement d’un backend avec Node.js/Express, d’un frontend avec React, et d’un déploiement conteneurisé via Docker.</p>
@@ -467,7 +467,7 @@
         </div>
     </div>
 
-    <div id="popup-ro">
+    <div id="popup-ro" class="popup">
         <div class="popup-content">
             <p>Ce projet avait pour but de résoudre des problèmes d'optimisation 
                 en utilisant la théorie des graphes.
@@ -672,8 +672,11 @@
 <script>
      function closePopup(event) {
         event.preventDefault();
+        // Find the nearest popup wrapper and remove the 'open' class
         let popup = event.target.closest(".popup");
-        popup.style.display = "none";
+        if (popup) {
+            popup.classList.remove('open');
+        }
     }
 
     // Ajouter un écouteur d'événement à tous les liens de fermeture

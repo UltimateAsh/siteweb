@@ -596,6 +596,11 @@ span {
   display: none;
 }
 
+/* Safety: hide any .popup wrapper by default unless it has the .open class */
+.popup {
+  display: none;
+}
+
 #popup-python.open,
 #popup-arduino.open,
 #popup-BDD.open,

@@ -358,15 +358,15 @@
             </div>
 
         </div>
-        <div id="popup-python">
-        <div class="popup-content">
+    <div id="popup-python" class="popup">
+    <div class="popup-content">
             <p>This project aimed to create a Python program to send and receive a message in several stages.</p>
                 <a href="javascript:void(0)" class="popup-exit" onclick="python()"><i class="fas fa-times-circle"></i></a>
         </div>
     </div>
 
 
-        <div id="popup-arduino">
+        <div id="popup-arduino" class="popup">
             <div class="popup-content">
                 <p>This project consisted of developing an Arduino program for implementing a secure safe.</p>
                 <a href="javascript:void(0)" class="popup-exit" onclick="arduino()"><i class="fas fa-times-circle"></i></a>
@@ -374,14 +374,14 @@
 
 
         </div>
-        <div id="popup-BDD">
+        <div id="popup-BDD" class="popup">
             <div class="popup-content">
                 <p>This project aimed to build a database that could be used by scientists to monitor air quality across different regions and over time.</p>
                 <a href="javascript:void(0)" class="popup-exit" onclick="BDD()"><i class="fas fa-times-circle"></i></a>
             </div>
         </div>
 
-        <div id="popup-weather">
+        <div id="popup-weather" class="popup">
             <div class="popup-content">
                 <p>This project aimed to develop a system whose main goal is to collect meteorological data for ocean monitoring.</p>
                 <a href="javascript:void(0)" class="popup-exit" onclick="weather()"><i class="fas fa-times-circle"></i></a>
@@ -389,35 +389,35 @@
         </div>
                 
 
-        <div id="popup-portfolio">
+        <div id="popup-portfolio" class="popup">
             <div class="popup-content">
                 <p>This project aimed to create a portfolio to showcase my skills and projects.</p>
                 <a href="javascript:void(0)" class="popup-exit" onclick="portfolio()"><i class="fas fa-times-circle"></i></a>
             </div>
         </div>
 
-        <div id="popup-POO">
+        <div id="popup-POO" class="popup">
             <div class="popup-content">
                 <p>This project aimed to develop an object-oriented program for managing a company.</p>
                 <a href="javascript:void(0)" class="popup-exit" onclick="POO()"><i class="fas fa-times-circle"></i></a>
             </div>
         </div>
 
-        <div id="popup-network">
+        <div id="popup-network" class="popup">
             <div class="popup-content">
                 <p>This project aimed to set up a city's network using the Packet Tracer software.</p>
                 <a href="javascript:void(0)" class="popup-exit" onclick="network()"><i class="fas fa-times-circle"></i></a>
             </div>
         </div>
 
-        <div id="popup-job">
+        <div id="popup-job" class="popup">
             <div class="popup-content">
                 <p>This project aimed to build a job search website.</p>
                 <a href="javascript:void(0)" class="popup-exit" onclick="job()"><i class="fas fa-times-circle"></i></a>
             </div>
         </div>
 
-        <div id="popup-assurancePlus">
+        <div id="popup-assurancePlus" class="popup">
             <div class="popup-content">
                 <p>Design of a reference IT architecture following a ransomware attack and conducting a security audit. Then implementation of continuity and recovery objectives and delivery of a prototype with deployment scripts.</p>
                 <a href="javascript:void(0)" class="popup-exit" onclick="assurancePlus()" aria-label="Close window">
@@ -426,7 +426,7 @@
             </div>
         </div>
 
-        <div id="popup-genielogiciel">
+        <div id="popup-genielogiciel" class="popup">
             <div class="popup-content">
                 <p>Development of a backup utility with emphasis on ease of use and maintainability. Delivered a version control system, user documentation, and a clean interface.</p>
                 <a href="javascript:void(0)" class="popup-exit" onclick="genieLogiciel()"><i class="fas fa-times-circle"></i></a>
@@ -434,14 +434,14 @@
         </div>
 
 
-        <div id="popup-breezy">
+        <div id="popup-breezy" class="popup">
             <div class="popup-content">
                 <p>Design and implementation of a lightweight social network. Developed a backend with Node.js/Express, a frontend with React, and containerized deployment using Docker.</p>
                 <a href="javascript:void(0)" class="popup-exit" onclick="breezy()"><i class="fas fa-times-circle"></i></a>
             </div>
         </div>
 
-        <div id="popup-ro">
+        <div id="popup-ro" class="popup">
             <div class="popup-content">
                 <p>This project aimed to solve optimization problems using graph theory.</p>
                 <a href="javascript:void(0)" class="popup-exit" onclick="ro()"><i class="fas fa-times-circle"></i></a>
@@ -669,8 +669,11 @@
 <script>
      function closePopup(event) {
         event.preventDefault();
+        // Find the nearest popup wrapper and remove the 'open' class
         let popup = event.target.closest(".popup");
-        popup.style.display = "none";
+        if (popup) {
+            popup.classList.remove('open');
+        }
     }
 
     // Ajouter un écouteur d'événement à tous les liens de fermeture
