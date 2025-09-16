@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -12,22 +12,30 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- hreflang for multilingual pages -->
+    <link rel="alternate" href="/index.html" hreflang="fr" />
+    <link rel="alternate" href="/index-en.html" hreflang="en" />
+
 </head>
 
 <body>
     <header class="header">
-        <a href="#" class="logo">Achraf</a>
-        <i class='bx bx-menu' id="menu-icon"></i>
+    <a href="#" class="logo">Achraf</a>
+    <i class='bx bx-menu' id="menu-icon" role="button" aria-label="Ouvrir le menu" aria-expanded="false" tabindex="0"></i>
 <!----------------------------------------système d'onglets---------------------------------------->
         <nav class="navbar">
-            <nav class="navbar">
                 <a href="#home" class="nav-link-home" onclick="navigateToSection('home')">Accueil</a>
                 <a href="#about" class="nav-link-about" onclick="navigateToSection('about')">À propos</a>
                 <a href="#services" class="nav-link-services" onclick="navigateToSection('services')">Compétences</a>
                 <a href="#portfolio" class="nav-link-portfolio" onclick="navigateToSection('portfolio')">Projets</a>
-                <a href="#contact" class="nav-link-contact" onclick="navigateToSection('contact')">Contact</a>
                 <a href="#lightmode" class="nav-link-lightmode" id="icon" ><i class="fa-regular fa-sun"></i></a>
-            </nav>
+                <!-- Language switcher -->
+                <div class="lang-switch">
+                    <a href="index.html" aria-label="Français" class="active-lang">FR</a>
+                    <span class="lang-sep">|</span>
+                    <a href="index-en.html" aria-label="English">EN</a>
+                </div>
+        </nav>
 <!----------------------------------------surbrillance---------------------------------------->
 <script>
                 document.addEventListener("DOMContentLoaded", function () {
@@ -54,10 +62,28 @@
                     highlightNavLink(); 
                 });
             </script>
-            
-            
-        </nav>
     </header>
+
+                <script>
+                    // Mobile menu toggle
+                    (function(){
+                        var menuIcon = document.getElementById('menu-icon');
+                        var navbar = document.querySelector('header .navbar');
+
+                        function toggleMenu(e){
+                            e && e.preventDefault();
+                            if(!navbar) return;
+                            navbar.classList.toggle('open');
+                            var expanded = navbar.classList.contains('open');
+                            menuIcon.setAttribute('aria-expanded', expanded);
+                        }
+
+                        if(menuIcon){
+                            menuIcon.addEventListener('click', toggleMenu);
+                            menuIcon.addEventListener('keypress', function(e){ if(e.key === 'Enter' || e.key === ' ') toggleMenu(e); });
+                        }
+                    })();
+                </script>
 
 <!----------------------------------------accueil---------------------------------------->
 <section class="home" id="home">
@@ -66,13 +92,9 @@
     <h1>Achraf SOBHI.</h1>
     <h3>Et je suis <span class="multiple-text"> </span></h3>
     <p>
-    Actuellement à la recherche d'une alternance dans le cadre de mes études, 
-    mon objectif est de trouver un poste d'alternant pour la rentrée 2024-2025 
-    afin de compléter ma formation et d'acquérir une expérience concrète 
-    dans le domaine de l'informatique.
-    Je me distingue par mon assiduité, ma rigueur et mon dynamisme 
-    ainsi que par mon engagement et ma détermination. 
-    Je suis convaincu que ces atouts pourront être précieux à votre entreprise.
+    Élève ingénieur en quatrième année d’informatique à CESI, je souhaite réaliser un stage à l’international afin de mettre à profit 
+    mes compétences en programmation. Mon parcours académique et mes expériences professionnelles m’ont permis de développer rigueur, 
+    adaptabilité et capacité d’apprentissage que je souhaite valoriser dans un environnement de recherche ou d’innovation à l’étranger.
     </p>
     <div class="social-media">
         <a href="https://github.com/ultimateAsh/" target="_blank"><i class='bx bxl-github'></i></a>
@@ -115,7 +137,7 @@
                         <li><span>Résolution de problèmes</span><br>Capacité à analyser des situations complexes et prendre une décision adéquate</li>
                         <li><span>Intelligence émotionnelle</span><br>Conscience de soi ainsi que des relations interpersonnelles</li>
                         <li><span>Plurilingues</span><br><p>Français</p>
-                            <p>Anglais (TOEIC : 960/990)</p>
+                            <p>Anglais (TOEIC : 920/990)</p>
                             <p>Quelques notions en espagnol et japonais</p>
                             <p>Arabe (langue maternelle)</p></li>
                         
@@ -123,8 +145,13 @@
                 </div>
                 <div class="tab-contents" id="experience">
                     <ul>
-                        <li><span>Août 2023-Septembre 2023</span>
-                        <p><span>Juin 2022-Août 2022</span></p>
+                        <li><span>Septembre 2024 - Septembre 2027</span>
+                            <p>Alternance - Développeur backend pour CLS (Collecte Localisation Services)</p>
+                        </li>
+                        <li><span>Avril - Août 2024</span>
+                            <p>Data Architect pour Oréus</p>
+                        </li>
+                        <li><span>Juin 2022-Août 2022/Août 2023-Septembre 2023</span>
                         <p>Personnel d'entretien dans une boucherie</p>
                         </li>
                     </ul>
@@ -292,7 +319,44 @@
                 </div>
                 </div>
             </div>
-             
+            <div class='work'>
+            <div class='content'>
+                <img src="assets/AD.png" >
+                <div class='layer'>
+                    <h3>Projet ASSURANCEPLUS</h3>
+                    <a href="#" onclick="assurancePlus()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                </div>
+            </div>
+            <div class='work'>
+            <div class='content'>
+                <img src="assets/genielogiciel.png" >
+                <div class='layer'>
+                    <h3>Projet Génie Logiciel</h3>  
+                    <a href="#" onclick="genieLogiciel()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>           
+                </div>
+            </div>
+            </div>
+            <div class='work'>
+            <div class='content'>
+                <img src="assets/node.png" >
+                <div class='layer'>
+                    <h3>Projet Réseau Social Breezy 2025</h3>
+                    <a href='#' onclick='breezy()'><i class='fa-solid fa-arrow-up-right-from-square'></i></a>
+                </div>
+            </div>
++           </div>
+            
+            <div class='work'>
+            <div class='content'>
+                <img src="assets/graphetheorie.jpg" >
+                <div class='layer'>
+                    <h3>Projet Recherche Opérationnelle</h3>  
+                    <a href="#" onclick='ro()'><i class="fa-solid fa-arrow-up-right-from-square"></i></a>           
+                </div>
+            </div>
+            </div>
+
         </div>
     </div>
     <div id="popup-python">
@@ -372,6 +436,46 @@
         </div>
     </div>
 
+    <div id="popup-assurancePlus">
+        <div class="popup-content">
+            <p>
+                Conception d’une architecture informatique de référence suite à une attaque par ransomware et
+                réalisation d’un audit de sécurité. Puis mise en place d’objectifs de continuité et de reprise et livraison d’un prototype avec scripts de déploiement.
+            </p>
+            <a href="javascript:void(0)" class="popup-exit" onclick="assurancePlus()" aria-label="Fermer la fenêtre">
+                <i class="fas fa-times-circle"></i>
+            </a>
+        </div>
+    </div>
+
+    <div id="popup-genielogiciel">
+        <div class="popup-content">
+            <p>Développement d’un utilitaire de sauvegarde. Accent mis sur la facilité d’utilisation et
+                la maintenabilité. Livraison d’un système de gestion de versions, d’une documentation
+                utilisateur, ainsi que d’une interface épurée.
+            </p>
+            <a href="javascript:void(0)" class="popup-exit" onclick="genieLogiciel()"><i class="fas fa-times-circle"></i></a>
+        </div>
+    </div>
+
+
+    <div id="popup-breezy">
+        <div class="popup-content">
+            <p>Conception et implémentation d’un réseau social léger.
+            Développement d’un backend avec Node.js/Express, d’un frontend avec React, et d’un déploiement conteneurisé via Docker.</p>
+            <a href="javascript:void(0)" class="popup-exit" onclick="breezy()"><i class="fas fa-times-circle"></i></a>
+        </div>
+    </div>
+
+    <div id="popup-ro">
+        <div class="popup-content">
+            <p>Ce projet avait pour but de résoudre des problèmes d'optimisation 
+                en utilisant la théorie des graphes.
+            </p>
+            <a href="javascript:void(0)" class="popup-exit" onclick="ro()"><i class="fas fa-times-circle"></i></a>
+        </div>
+    </div>
+
 <a href="#" class="btn center-btn" id="loadMoreBtn">Voir plus</a>
 
 
@@ -385,50 +489,25 @@
     event.preventDefault(); // Empêcher le comportement par défaut du bouton
 
     var contents = document.querySelectorAll('.content');
-    var showMore = this.textContent === "Voir plus";
+    var text = this.textContent.trim();
+    var showMore = (text === "Voir plus") || (text === "Show more");
 
     // Basculer la visibilité de la classe "content" en fonction du bouton cliqué
     contents.forEach(function(content) {
         content.style.display = showMore ? 'block' : 'none';
     });
 
-    // Modifiez le texte du bouton en conséquence
-    this.textContent = showMore ? "Voir moins" : "Voir plus";
+    // Modifiez le texte du bouton en conséquence (support FR/EN)
+    if (text === "Voir plus" || text === "Voir moins") {
+        this.textContent = showMore ? "Voir moins" : "Voir plus";
+    } else {
+        this.textContent = showMore ? "Show less" : "Show more";
+    }
 });
 
 
 
 </script>
-
-
-
-<!----------------------------------------contact---------------------------------------->
-
-<section id="contact">
-    <div class="container">
-        <h1 class="sub-title">Contactez <span>moi !</span></h1>
-
-        <form action="https://api.web3forms.com/submit" method="POST">
-            <div class="input-box">
-                <input type="hidden" name="access_key" value="bff74283-e893-450f-ba71-6c451066d92a">
-                <input type="text" name="name" placeholder="Prénom NOM" required>
-                <input type="email" name="email" placeholder="Email" required>
-            </div>
-            <div class="input-box">
-                <input type="tel" name="phone" placeholder="Numero de téléphone">
-                <input type="text" name="subject" placeholder="Objet du message">
-            </div>
-            <textarea name="message" cols="30" rows="10" placeholder="Votre message" required></textarea>
-            <div class="captcha-container">
-                <div class="h-captcha" data-captcha="true"></div>
-            </div>
-            <input type="hidden" name="redirect" value="https://web3forms.com/success">
-            <input type="submit" value="Envoyez mon message" class="btn">
-            <!-- Inclusion du script de l'API -->
-            <script src="https://web3forms.com/client/script.js" async defer></script>
-        </form>
-    </div>
-</section>
 
 
 
@@ -470,8 +549,11 @@
 
         navLinks.forEach(function (link) {
             link.addEventListener('click', function (event) {
+                var href = this.getAttribute('href');
+                // Only intercept internal hash links (section navigation). Let other links (language, external) work normally.
+                if (!href || href.charAt(0) !== '#') return;
                 event.preventDefault(); // Empêcher le comportement par défaut du lien
-                var targetSectionId = this.getAttribute('href').substring(1); // Récupérer l'ID de la section cible
+                var targetSectionId = href.substring(1); // Récupérer l'ID de la section cible
                 navigateToSection(targetSectionId); // Appeler la fonction de navigation
             });
         });
@@ -482,7 +564,7 @@
 
 <footer class="footer">
     <div class="footer-text">
-        <p> Copyright &copy; 2024 by Achraf SOBHI | All Rights Reserved. </p>
+        <p> Copyright &copy; 2025 by Achraf SOBHI | All Rights Reserved. </p>
     </div>
 
     <div class="footer-iconTop">
@@ -562,6 +644,29 @@
         let popup = document.querySelector("#popup-job");
         popup.classList.toggle("open");
     }
+    function assurancePlus() {
+        event.preventDefault();
+        let popup = document.querySelector("#popup-assurancePlus");
+        popup.classList.toggle("open");
+    }
+
+    function genieLogiciel() {
+        event.preventDefault();
+        let popup = document.querySelector("#popup-genielogiciel");
+        popup.classList.toggle("open");
+    }
+
+    function breezy() {
+        event.preventDefault();
+        let popup = document.querySelector("#popup-breezy");
+        popup.classList.toggle("open");
+    }
+
+    function ro() {
+        event.preventDefault();
+        let popup = document.querySelector("#popup-ro");
+        popup.classList.toggle("open");
+    }
 
 </script>
 <script>
@@ -594,5 +699,8 @@ document.body. classList.toggle("light-mode");
 <script src = "assets/animation.js"></script>
 </body>
 </html>
+
+
+
 
 

@@ -1,0 +1,703 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- hreflang for multilingual pages -->
+    <link rel="alternate" href="/index.html" hreflang="fr" />
+    <link rel="alternate" href="/index-en.html" hreflang="en" />
+
+</head>
+
+<body>
+    <header class="header">
+    <a href="#" class="logo">Achraf</a>
+    <i class='bx bx-menu' id="menu-icon" role="button" aria-label="Ouvrir le menu" aria-expanded="false" tabindex="0"></i>
+<!----------------------------------------système d'onglets---------------------------------------->
+        <nav class="navbar">
+                <a href="#home" class="nav-link-home" onclick="navigateToSection('home')">Home</a>
+                <a href="#about" class="nav-link-about" onclick="navigateToSection('about')">About</a>
+                <a href="#services" class="nav-link-services" onclick="navigateToSection('services')">Skills</a>
+                <a href="#portfolio" class="nav-link-portfolio" onclick="navigateToSection('portfolio')">Projects</a>
+                    <a href="#lightmode" class="nav-link-lightmode" id="icon" ><i class="fa-regular fa-sun"></i></a>
+                <!-- Language switcher -->
+            <div class="lang-switch">
+                <a href="index.html" aria-label="Français">FR</a>
+                <span class="lang-sep">|</span>
+                <a href="index-en.html" aria-label="English" class="active-lang">EN</a>
+            </div>
+            </nav>
+<!----------------------------------------surbrillance---------------------------------------->
+<script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    var sections = document.querySelectorAll('section');
+            
+                    function highlightNavLink() {
+                        var scrollPosition = window.scrollY;
+            
+                        sections.forEach(function (section) {
+                            var sectionId = section.getAttribute('id');
+                            var navLink = document.querySelector('.nav-link-' + sectionId);
+            
+                            var rect = section.getBoundingClientRect();
+            
+                            if (rect.top <= 50 && rect.bottom >= 50) {
+                                navLink.classList.add('active-link');
+                            } else {
+                                navLink.classList.remove('active-link');
+                            }
+                        });
+                    }
+            
+                    window.addEventListener('scroll', highlightNavLink);
+                    highlightNavLink(); 
+                });
+            </script>
+    </header>
+
+                <script>
+                    // Mobile menu toggle
+                    (function(){
+                        var menuIcon = document.getElementById('menu-icon');
+                        var navbar = document.querySelector('header .navbar');
+
+                        function toggleMenu(e){
+                            e && e.preventDefault();
+                            if(!navbar) return;
+                            navbar.classList.toggle('open');
+                            var expanded = navbar.classList.contains('open');
+                            menuIcon.setAttribute('aria-expanded', expanded);
+                        }
+
+                        if(menuIcon){
+                            menuIcon.addEventListener('click', toggleMenu);
+                            menuIcon.addEventListener('keypress', function(e){ if(e.key === 'Enter' || e.key === ' ') toggleMenu(e); });
+                        }
+                    })();
+                </script>
+
+<!----------------------------------------accueil---------------------------------------->
+<section class="home" id="home">
+    <div class="home-content">
+    <h3>Hello, I am</h3>
+    <h1>Achraf SOBHI.</h1>
+    <h3>And I am <span class="multiple-text"> </span></h3>
+    <p>
+    A fourth-year computer engineering student at CESI, I want to do an internship abroad to leverage
+    my programming skills. My academic background and professional experiences have allowed me to develop rigor,
+    adaptability, and a capacity for learning that I wish to enhance in a research or innovation environment abroad.
+    </p>
+    <div class="social-media">
+        <a href="https://github.com/ultimateAsh/" target="_blank"><i class='bx bxl-github'></i></a>
+        <a href="https://www.linkedin.com/in/achraf-sobhi-11555a293/" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
+        <a href="https://www.instagram.com/achraf_so_/" target="_blank"><i class='bx bxl-instagram'></i></a>            
+    </div>
+    <a href="assets/Achraf_SOBHI_CV_Apprentissage (1).pdf" download="SOBHI_Achraf_CV.pdf" class="btn">Download my CV</a>
+    <a href="#contact" class="btn" onclick="navigateToSection('contact')">Contact me <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="home-img">
+    <img src=" assets/home.jpg " >
+    </div>
+</section>
+
+<!----------------------------------------à propos---------------------------------------->
+
+<section id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">            
+            <img src="assets/about.jpg" >
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About <span>me</span></h1>
+                <p>I stand out for my diligence, rigor, and dynamism.</p>
+                <p>I am convinced that my commitment and determination</p>
+                <p>will be valuable assets for your company.</p>
+
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Soft skills</p>
+                    <p class="tab-links" onclick="opentab('experience')"> Experiences</p>
+                    <p class="tab-links" onclick="opentab('education')"> Diplômes</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Communication</span><br>Capacité à communiquer efficacement à l'écrit et à l'oral 
+                        <p>ainsi que présenter les idées de manières claires</p></li>
+                        <li><span>Teamwork</span><br>Sense of effective cooperation</li>
+                        <li><span>Problem-solving</span><br>Ability to analyze complex situations and make appropriate decisions</li>
+                        <li><span>Emotional intelligence</span><br>Self-awareness as well as awareness of interpersonal relationships</li>
+                        <li><span>Multilingual</span><br><p>French</p>
+                            <p>English (TOEIC: 920/990)</p>
+                            <p>Some knowledge of Spanish and Japanese</p>
+                            <p>Arabic (native language)</p></li>
+
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>September 2024 - September 2027</span>
+                            <p>Apprenticeship - Backend Developer for CLS (Collecte Localisation Services)</p>
+                        </li>
+                        <li><span>April - August 2024</span>
+                            <p>Internship - Data Architect for Oréus</p>
+                        </li>
+                        <li><span>June 2022 - August 2022 / August 2023 - September 2023</span>
+                        <p>Maintenance staff in a butcher shop</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2022–2024</span><br>Preparatory engineering cycle at CESI Toulouse</li>
+                        <li><span>2020–2021</span><br>Baccalaureate (Mention: Bien)</li>
+                        <li><span>November 2020</span><br>B1 Preliminary English Test (Cambridge Assessment)</li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!----------------------------------------langages---------------------------------------->
+
+<section id="services">
+<div class="container">
+        <h1 class="sub-title">My <span>skills</span></h1>
+        <div class="services-list" id="workList">
+        <div class="skills">
+                <img src="assets/arduino.png" >
+                    <h3>Arduino</h3>
+                    <a href="#" onclick="arduino()"></a>
+                </div>
+            <div class="skills">
+                <img src="assets/python.png" >
+                    <h3>Python</h3>
+            </div>
+            <div class="skills">
+                <img src="assets/sql.png" >
+                    <h3>SQL</h3>
+            </div> 
+            <div class="skills">
+                <img src="assets/Microsoft_SQL_Server.png" >
+                <h3>Microsoft SQL Server</h3>
+            </div>
+            <div class="skills">
+                <img src="assets/MySQL.png" >
+                <h3>MySQL</h3>
+            </div>
+            <div class="skills">
+                <img src="assets/PostgreSQL.png" >
+                <h3>PostgreSQL</h3>
+            </div>
+            <div class="skills">
+                <img src="assets/html.png" >
+                <h3>HTML</h3>
+            </div>
+            <div class="skills">
+                <img src="assets/css.png" >
+                <h3>CSS</h3>
+            </div>
+            <div class="skills">
+                <img src="assets/js.png" >
+                <h3>JavaScript</h3>
+            </div>
+            <div class="skills">
+                <img src="assets/node.png" >
+                <h3>Node.js</h3>
+            </div>
+            <div class="skills">
+                <img src="assets/php.png" >
+                <h3>PHP</h3>
+            </div>
+            <div class="skills">
+                <img src="assets/laravel.png" >
+                <h3>Laravel</h3>
+            </div>
+            <div class="skills">
+                <img src="assets/figma.png" >
+                <h3>Figma</h3>
+            </div>
+            <div class="skills">
+                <img src="assets/c.png" >
+                <h3>C</h3>
+            </div>
+            <div class="skills">
+                <img src="assets/Cplus.png" >
+                <h3>C++</h3>
+            </div>
+            <div class="skills">
+                <img src="assets/packet.png" >
+                <h3>Packet Tracer</h3>
+            </div>
+            <div class="skills">
+                <img src="assets/git.png" >
+                <h3>Git</h3>
+            </div>
+
+            
+            
+             
+        </div>
+    </div>
+        </div>
+    </div>
+</section>
+<!----------------------------------------portfolio---------------------------------------->
+<section id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">Portfolio of my <span>projects</span></h1>
+        <div class="work-list" id="workList">
+            <div class="work">
+                <img src="assets/arduino.png" >
+                <div class="layer">
+                    <h3>Arduino Project</h3>
+                    <a href="#" onclick="arduino()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="assets/python.png" >
+                <div class="layer">
+                    <h3>Python Project</h3>
+                    <a href="#" onclick="python()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="assets/sql.png" >
+                <div class="layer">
+                    <h3>Database Project</h3>
+                    <a href="#" onclick="BDD()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>               
+                </div>
+            </div>   
+            <div class="work">
+                <img src="assets/Weather.png" >
+                <div class="layer">
+                    <h3>Weather Station Project</h3>  
+                    <a href="#" onclick="weather()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>           
+                </div>
+            </div>
+            <div class="work">
+                <img src="assets/portfolio.png" >
+                <div class="layer">
+                    <h3>PPortfolio Project</h3>  
+                    <a href="#" onclick="portfolio()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>           
+                </div>
+            </div>
+            <div class='work'>
+                <img src="assets/Cplus.png" >
+                <div class='layer'>
+                    <h3>Object-Oriented Programming Project</h3>  
+                    <a href="#"onclick="POO()" ><i class="fa-solid fa-arrow-up-right-from-square"></i></a>           
+                </div>
+            </div>
+            <div class='work'>
+                <div class = 'content'>
+                <img src="assets/packet.png" >
+                <div class='layer'>
+                    <h3>Network Project</h3>  
+                    <a href="#" onclick="network()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>           
+                </div>
+                </div>
+            </div>
+            <div class='work'>
+            <div class='content'>
+                <img src="assets/site.png" >
+                <div class='layer'>
+                    <h3>Job Board Project</h3>  
+                    <a href="#" onclick="job()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>           
+                </div>
+                </div>
+            </div>
+            <div class='work'>
+            <div class='content'>
+                <img src="assets/AD.png" >
+                <div class='layer'>
+                    <h3>ASSURANCEPLUS Project</h3>
+                    <a href="#" onclick="assurancePlus()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                </div>
+            </div>
+            <div class='work'>
+            <div class='content'>
+                <img src="assets/genielogiciel.png" >
+                <div class='layer'>
+                    <h3>Software Engineering Project</h3>  
+                    <a href="#" onclick="genieLogiciel()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>           
+                </div>
+            </div>
+            </div>
+            <div class='work'>
+            <div class='content'>
+                <img src="assets/node.png" >
+                <div class='layer'>
+                    <h3>Social Network Project Breezy 2025</h3>
+                    <a href='#' onclick='breezy()'><i class='fa-solid fa-arrow-up-right-from-square'></i></a>
+                </div>
+            </div>
+           </div>
+
+            <div class='work'>
+            <div class='content'>
+                <img src="assets/graphetheorie.jpg" >
+                <div class='layer'>
+                    <h3>Operations Research Project</h3>  
+                    <a href="#" onclick='ro()'><i class="fa-solid fa-arrow-up-right-from-square"></i></a>           
+                </div>
+            </div>
+            </div>
+
+        </div>
+        <div id="popup-python">
+        <div class="popup-content">
+            <p>This project aimed to create a Python program to send and receive a message in several stages.</p>
+                <a href="javascript:void(0)" class="popup-exit" onclick="python()"><i class="fas fa-times-circle"></i></a>
+        </div>
+    </div>
+
+
+        <div id="popup-arduino">
+            <div class="popup-content">
+                <p>This project consisted of developing an Arduino program for implementing a secure safe.</p>
+                <a href="javascript:void(0)" class="popup-exit" onclick="arduino()"><i class="fas fa-times-circle"></i></a>
+            </div>
+
+
+        </div>
+        <div id="popup-BDD">
+            <div class="popup-content">
+                <p>This project aimed to build a database that could be used by scientists to monitor air quality across different regions and over time.</p>
+                <a href="javascript:void(0)" class="popup-exit" onclick="BDD()"><i class="fas fa-times-circle"></i></a>
+            </div>
+        </div>
+
+        <div id="popup-weather">
+            <div class="popup-content">
+                <p>This project aimed to develop a system whose main goal is to collect meteorological data for ocean monitoring.</p>
+                <a href="javascript:void(0)" class="popup-exit" onclick="weather()"><i class="fas fa-times-circle"></i></a>
+            </div>
+        </div>
+                
+
+        <div id="popup-portfolio">
+            <div class="popup-content">
+                <p>This project aimed to create a portfolio to showcase my skills and projects.</p>
+                <a href="javascript:void(0)" class="popup-exit" onclick="portfolio()"><i class="fas fa-times-circle"></i></a>
+            </div>
+        </div>
+
+        <div id="popup-POO">
+            <div class="popup-content">
+                <p>This project aimed to develop an object-oriented program for managing a company.</p>
+                <a href="javascript:void(0)" class="popup-exit" onclick="POO()"><i class="fas fa-times-circle"></i></a>
+            </div>
+        </div>
+
+        <div id="popup-network">
+            <div class="popup-content">
+                <p>This project aimed to set up a city's network using the Packet Tracer software.</p>
+                <a href="javascript:void(0)" class="popup-exit" onclick="network()"><i class="fas fa-times-circle"></i></a>
+            </div>
+        </div>
+
+        <div id="popup-job">
+            <div class="popup-content">
+                <p>This project aimed to build a job search website.</p>
+                <a href="javascript:void(0)" class="popup-exit" onclick="job()"><i class="fas fa-times-circle"></i></a>
+            </div>
+        </div>
+
+        <div id="popup-assurancePlus">
+            <div class="popup-content">
+                <p>Design of a reference IT architecture following a ransomware attack and conducting a security audit. Then implementation of continuity and recovery objectives and delivery of a prototype with deployment scripts.</p>
+                <a href="javascript:void(0)" class="popup-exit" onclick="assurancePlus()" aria-label="Close window">
+                    <i class="fas fa-times-circle"></i>
+                </a>
+            </div>
+        </div>
+
+        <div id="popup-genielogiciel">
+            <div class="popup-content">
+                <p>Development of a backup utility with emphasis on ease of use and maintainability. Delivered a version control system, user documentation, and a clean interface.</p>
+                <a href="javascript:void(0)" class="popup-exit" onclick="genieLogiciel()"><i class="fas fa-times-circle"></i></a>
+            </div>
+        </div>
+
+
+        <div id="popup-breezy">
+            <div class="popup-content">
+                <p>Design and implementation of a lightweight social network. Developed a backend with Node.js/Express, a frontend with React, and containerized deployment using Docker.</p>
+                <a href="javascript:void(0)" class="popup-exit" onclick="breezy()"><i class="fas fa-times-circle"></i></a>
+            </div>
+        </div>
+
+        <div id="popup-ro">
+            <div class="popup-content">
+                <p>This project aimed to solve optimization problems using graph theory.</p>
+                <a href="javascript:void(0)" class="popup-exit" onclick="ro()"><i class="fas fa-times-circle"></i></a>
+            </div>
+        </div>
+
+<a href="#" class="btn center-btn" id="loadMoreBtn">Show more</a>
+
+
+</section>
+
+
+<!----------------------------------------btn voir plus---------------------------------------->
+<!---------quand on clique sur le bouton "voir plus", le "content" s'affiche et n'est plus en "none" dans le css-->
+<script>
+    document.getElementById("loadMoreBtn").addEventListener("click", function(event) {
+    event.preventDefault(); // Empêcher le comportement par défaut du bouton
+
+    var contents = document.querySelectorAll('.content');
+    var showMore = this.textContent === "Show more";
+
+    // Basculer la visibilité de la classe "content" en fonction du bouton cliqué
+    contents.forEach(function(content) {
+        content.style.display = showMore ? 'block' : 'none';
+    });
+
+    // Modifiez le texte du bouton en conséquence
+    this.textContent = showMore ? "Show less" : "Show more";
+});
+
+
+
+</script>
+
+
+
+<!----------------------------------------contact---------------------------------------->
+
+<section id="contact">
+    <div class="container">
+    <h1 class="sub-title">Contact <span>me!</span></h1>
+
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <div class="input-box">
+                <input type="hidden" name="access_key" value="bff74283-e893-450f-ba71-6c451066d92a">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-box">
+                <input type="tel" name="phone" placeholder="Phone number">
+                <input type="text" name="subject" placeholder="Subject">
+            </div>
+            <textarea name="message" cols="30" rows="10" placeholder="Your message" required></textarea>
+            <div class="captcha-container">
+                <div class="h-captcha" data-captcha="true"></div>
+            </div>
+            <input type="hidden" name="redirect" value="https://web3forms.com/success">
+            <input type="submit" value="Send Message" class="btn">
+            <!-- Inclusion of the API script -->
+            <script src="https://web3forms.com/client/script.js" async defer></script>
+        </form>
+    </div>
+</section>
+
+
+
+
+<!----------------------------------------système d'onglets---------------------------------------->
+
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    
+    function opentab(tabname) {
+        for (var tablink of tablinks) {  
+        tablink.classList.remove("active-link");}
+        for (var tabcontent of tabcontents) {  
+        tabcontent.classList.remove("active-tab");}
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+
+<!----------------------------------------système d'onglets---------------------------------------->
+
+<script>
+
+    function navigateToSection(sectionId) {
+         document.getElementById( sectionId).scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+
+</script>
+<!----------------------------------------sections---------------------------------------->
+
+<script>
+    // Script pour activer la navigation vers les sections
+    document.addEventListener("DOMContentLoaded", function () {
+        // Associer la fonction navigateToSection à chaque lien de navigation
+        var navLinks = document.querySelectorAll('.navbar a');
+
+        navLinks.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                var href = this.getAttribute('href');
+                // Only intercept internal hash links (section navigation). Let other links (language, external) work normally.
+                if (!href || href.charAt(0) !== '#') return;
+                event.preventDefault(); // Empêcher le comportement par défaut du lien
+                var targetSectionId = href.substring(1); // Récupérer l'ID de la section cible
+                navigateToSection(targetSectionId); // Appeler la fonction de navigation
+            });
+        });
+    });
+</script>
+
+<!----------------------------------------copyright/flèche---------------------------------------->
+
+<footer class="footer">
+    <div class="footer-text">
+        <p> Copyright &copy; 2025 by Achraf SOBHI | All Rights Reserved. </p>
+    </div>
+
+    <div class="footer-iconTop">
+        <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+    </div>
+</footer>
+
+<!----------------------------------------animations---------------------------------------->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Configuration de ScrollReveal
+        ScrollReveal({
+            distance: '80px',
+            duration: 2000,
+            delay: 200
+        });
+        
+        // Appliquer l'effet de révélation à la section d'accueil
+        ScrollReveal().reveal('.home-content', { origin: 'top' });
+        ScrollReveal().reveal(' #about h1, #services h1, #portfolio h1, #contact h1', { origin: 'top' });
+        ScrollReveal().reveal('.work', { origin: 'bottom', interval: 200 });
+        ScrollReveal().reveal('.home-img, .tab-contents.active-tab, .services-list, #contact form', { origin: 'bottom' });
+        ScrollReveal().reveal('.home-content h1, .about-col-1', { origin: 'left' });
+        ScrollReveal().reveal('.home-content p, .about-col-2', { origin: 'left' });
+        });
+</script>
+<script>
+
+
+
+
+    // Script pour afficher/masquer le popup
+    function python() {
+        event.preventDefault();
+        let popup = document.querySelector("#popup-python");
+        popup.classList.toggle("open");
+    }
+
+    function arduino() {
+        event.preventDefault();
+        let popup = document.querySelector("#popup-arduino");
+        popup.classList.toggle("open");
+    }
+
+    function BDD() {
+        event.preventDefault();
+        let popup = document.querySelector("#popup-BDD");
+        popup.classList.toggle("open");
+    }
+
+    function weather() {
+        event.preventDefault();
+        let popup = document.querySelector("#popup-weather");
+        popup.classList.toggle("open");
+    }
+
+    function portfolio() {
+        event.preventDefault();
+        let popup = document.querySelector("#popup-portfolio");
+        popup.classList.toggle("open");
+    }
+
+    function POO() {
+        event.preventDefault();
+        let popup = document.querySelector("#popup-POO");
+        popup.classList.toggle("open");
+    }
+
+    function network() {
+        event.preventDefault();
+        let popup = document.querySelector("#popup-network");
+        popup.classList.toggle("open");
+    }
+
+    function job() {
+        event.preventDefault();
+        let popup = document.querySelector("#popup-job");
+        popup.classList.toggle("open");
+    }
+    function assurancePlus() {
+        event.preventDefault();
+        let popup = document.querySelector("#popup-assurancePlus");
+        popup.classList.toggle("open");
+    }
+
+    function genieLogiciel() {
+        event.preventDefault();
+        let popup = document.querySelector("#popup-genielogiciel");
+        popup.classList.toggle("open");
+    }
+
+    function breezy() {
+        event.preventDefault();
+        let popup = document.querySelector("#popup-breezy");
+        popup.classList.toggle("open");
+    }
+
+    function ro() {
+        event.preventDefault();
+        let popup = document.querySelector("#popup-ro");
+        popup.classList.toggle("open");
+    }
+
+</script>
+<script>
+     function closePopup(event) {
+        event.preventDefault();
+        let popup = event.target.closest(".popup");
+        popup.style.display = "none";
+    }
+
+    // Ajouter un écouteur d'événement à tous les liens de fermeture
+    document.querySelectorAll(".popup-exit").forEach(function(popupExit) {
+        popupExit.addEventListener("click", closePopup);
+    });
+</script>
+
+
+
+
+<script>
+
+var icon = document.getElementById("icon");
+
+icon.onclick = function(){
+document.body. classList.toggle("light-mode");
+}
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src = "assets/animation.js"></script>
+</body>
+</html>
+
+
+
+
+
