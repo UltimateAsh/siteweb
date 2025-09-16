@@ -102,7 +102,6 @@
         <a href="https://www.instagram.com/achraf_so_/" target="_blank"><i class='bx bxl-instagram'></i></a>            
     </div>
     <a href="assets/Achraf_SOBHI_CV_Apprentissage (1).pdf" download="SOBHI_Achraf_CV.pdf" class="btn">Download my CV</a>
-    <a href="#contact" class="btn" onclick="navigateToSection('contact')">Contact me <i class="fa-solid fa-arrow-right"></i></a>
     </div>
 
     <div class="home-img">
@@ -259,6 +258,105 @@
     <div class="container">
         <h1 class="sub-title">Portfolio of my <span>projects</span></h1>
         <div class="work-list" id="workList">
+            <div class="work">
+                <img src="assets/arduino.png" >
+                <div class="layer">
+                    <h3>Arduino Project</h3>
+                    <a href="#" onclick="arduino()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="assets/python.png" >
+                <div class="layer">
+                    <h3>Python Project</h3>
+                    <a href="#" onclick="python()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="assets/sql.png" >
+                <div class="layer">
+                    <h3>Database Project</h3>
+                    <a href="#" onclick="BDD()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>               
+                </div>
+            </div>   
+            <div class="work">
+                <img src="assets/Weather.png" >
+                <div class="layer">
+                    <h3>Weather Station Project</h3>  
+                    <a href="#" onclick="weather()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>           
+                </div>
+            </div>
+            <div class="work">
+                <img src="assets/portfolio.png" >
+                <div class="layer">
+                    <h3>Portfolio Project</h3>  
+                    <a href="#" onclick="portfolio()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>           
+                </div>
+            </div>
+            <div class='work'>
+                <img src="assets/Cplus.png" >
+                <div class='layer'>
+                    <h3>Object-Oriented Programming Project</h3>  
+                    <a href="#" onclick="POO()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>           
+                </div>
+            </div>
+            <div class='work'>
+                <div class = 'content'>
+                <img src="assets/packet.png" >
+                <div class='layer'>
+                    <h3>Network Project</h3>  
+                    <a href="#" onclick="network()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>           
+                </div>
+                </div>
+            </div>
+            <div class='work'>
+            <div class='content'>
+                <img src="assets/site.png" >
+                <div class='layer'>
+                    <h3>Job Board Project</h3>  
+                    <a href="#" onclick="job()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>           
+                </div>
+                </div>
+            </div>
+            <div class='work'>
+            <div class='content'>
+                <img src="assets/AD.png" >
+                <div class='layer'>
+                    <h3>ASSURANCEPLUS Project</h3>
+                    <a href="#" onclick="assurancePlus()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                </div>
+            </div>
+            <div class='work'>
+            <div class='content'>
+                <img src="assets/genielogiciel.png" >
+                <div class='layer'>
+                    <h3>Software Engineering Project</h3>  
+                    <a href="#" onclick="genieLogiciel()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>           
+                </div>
+            </div>
+            </div>
+            <div class='work'>
+            <div class='content'>
+                <img src="assets/node.png" >
+                <div class='layer'>
+                    <h3>Social Network Project Breezy 2025</h3>
+                    <a href='#' onclick='breezy()'><i class='fa-solid fa-arrow-up-right-from-square'></i></a>
+                </div>
+            </div>
+            </div>
+            
+            <div class='work'>
+            <div class='content'>
+                <img src="assets/graphetheorie.jpg" >
+                <div class='layer'>
+                    <h3>Operations Research Project</h3>  
+                    <a href="#" onclick='ro()'><i class="fa-solid fa-arrow-up-right-from-square"></i></a>           
+                </div>
+            </div>
+            </div>
+
+        </div>
             <div class="work">
                 <img src="assets/arduino.png" >
                 <div class="layer">
@@ -475,38 +573,6 @@
 
 
 </script>
-
-
-
-<!----------------------------------------contact---------------------------------------->
-
-<section id="contact">
-    <div class="container">
-    <h1 class="sub-title">Contact <span>me!</span></h1>
-
-        <form action="https://api.web3forms.com/submit" method="POST">
-            <div class="input-box">
-                <input type="hidden" name="access_key" value="bff74283-e893-450f-ba71-6c451066d92a">
-                <input type="text" name="name" placeholder="Full Name" required>
-                <input type="email" name="email" placeholder="Email" required>
-            </div>
-            <div class="input-box">
-                <input type="tel" name="phone" placeholder="Phone number">
-                <input type="text" name="subject" placeholder="Subject">
-            </div>
-            <textarea name="message" cols="30" rows="10" placeholder="Your message" required></textarea>
-            <div class="captcha-container">
-                <div class="h-captcha" data-captcha="true"></div>
-            </div>
-            <input type="hidden" name="redirect" value="https://web3forms.com/success">
-            <input type="submit" value="Send Message" class="btn">
-            <!-- Inclusion of the API script -->
-            <script src="https://web3forms.com/client/script.js" async defer></script>
-        </form>
-    </div>
-</section>
-
-
 
 
 <!----------------------------------------système d'onglets---------------------------------------->
