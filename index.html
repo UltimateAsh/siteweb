@@ -589,6 +589,11 @@
         ScrollReveal().reveal('.home-img, .tab-contents.active-tab, .services-list, #contact form', { origin: 'bottom' });
         ScrollReveal().reveal('.home-content h1, .about-col-1', { origin: 'left' });
         ScrollReveal().reveal('.home-content p, .about-col-2', { origin: 'left' });
+        
+        // Sécurité : s'assurer qu'aucun popup n'est ouvert au chargement
+        document.querySelectorAll('.popup').forEach(function(popup) {
+            popup.classList.remove('open');
+        });
         });
 </script>
 <script>

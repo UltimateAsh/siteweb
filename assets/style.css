@@ -591,14 +591,13 @@ span {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
-
   z-index: 98;
-  display: none;
+  display: none !important;
 }
 
 /* Safety: hide any .popup wrapper by default unless it has the .open class */
 .popup {
-  display: none;
+  display: none !important;
 }
 
 #popup-python.open,
